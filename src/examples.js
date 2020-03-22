@@ -21,3 +21,18 @@ Array.prototype.addValue = function(x) {
 }
 
 console.log(arr.addValue(5));
+
+
+
+// How to use closure.
+
+function getFullName(secondName) {
+    return function(firstName, middleName) {
+        return `Fullname: ${firstName} ${secondName} ${middleName}`;
+    }
+}
+
+const fullName = getFullName("Second");
+
+console.log(fullName("One", "Two"));
+console.log(fullName("Three", "Four"));
