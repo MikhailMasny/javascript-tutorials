@@ -50,3 +50,45 @@ function someFunc() {
 setTimeout(someFunc, 0);
 
 console.log("Third");
+
+
+
+// How to use Promise.all.
+
+const sleep = ms => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), ms);
+    });
+}
+
+Promise.all([sleep(1000), sleep(2000), sleep(3000)])
+    .then(() => console.log("Complete all!"));
+
+Promise.race([sleep(1000), sleep(2000), sleep(3000)])
+    .then(() => console.log("Complete race!"));
+
+
+
+// How to use Promise form API.
+
+function getData(url, data) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                let json = JSON.stringify(xhr.response);
+                resolve(json);
+            }
+            reject(xhr.response);
+        }
+        xhr.onerror = function() {
+            reject(error);
+        }
+        xhr.send();
+    })
+}
+
+getData("http://jsonplaceholder.typicode.com/posts")
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
