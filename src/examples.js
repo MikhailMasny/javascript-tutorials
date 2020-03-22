@@ -92,3 +92,58 @@ function getData(url, data) {
 getData("http://jsonplaceholder.typicode.com/posts")
     .then(data => console.log(data))
     .catch(error => console.error(error));
+
+
+
+// How to use class on components.
+
+class Component {
+    constructor(selector) {
+        this.element = document.querySelector(selector);
+    }
+
+    hide() {
+        this.element.style.display = "none";
+    }
+
+    show() {
+        this.element.style.display = "block";
+    }
+}
+
+class GreenBox extends Component {
+    constructor(options) {
+        super(options.selector);
+
+        this.element.style.width = options.sizeWidth + "px";
+        this.element.style.height = options.sizeHeight + "px";
+        this.element.style.background = options.color;
+    }
+}
+
+const greenBox = {
+    selector: "#box",
+    sizeWidth: 200,
+    sizeHeight: 100,
+    color: "green"
+}
+
+const box = new GreenBox(greenBox);
+
+const redCircle = {
+    selector: "#circle",
+    sizeWidth: 100,
+    sizeHeight: 100,
+    borderRadius: "50%",
+    color: "red"
+}
+
+class RedCircle extends GreenBox {
+    constructor(options) {
+        super(options);
+
+        this.element.style.borderRadius = options.borderRadius;
+    }
+}
+
+const circle = new RedCircle(redCircle);
