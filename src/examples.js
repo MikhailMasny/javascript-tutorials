@@ -36,3 +36,17 @@ const fullName = getFullName("Second");
 
 console.log(fullName("One", "Two"));
 console.log(fullName("Three", "Four"));
+
+
+
+// How to use setTimeout.
+
+console.log("First");
+
+function someFunc() {
+    console.log("Second");
+}
+
+setTimeout(someFunc, 0);
+
+console.log("Third");
