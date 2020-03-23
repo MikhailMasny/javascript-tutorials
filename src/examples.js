@@ -147,3 +147,17 @@ class RedCircle extends GreenBox {
 }
 
 const circle = new RedCircle(redCircle);
+
+
+
+// How to use generator.
+
+function* simpleGenerator() {
+    yield console.log("One..");
+    console.log("Two...");
+    yield console.log("Three..");
+}
+
+const generator = simpleGenerator();
+generator.next();
+generator.next();
