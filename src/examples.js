@@ -161,3 +161,28 @@ function* simpleGenerator() {
 const generator = simpleGenerator();
 generator.next();
 generator.next();
+
+
+
+// How to use WeekMap.
+
+const cache = new WeekMap();
+
+function cacheData(data) {
+    if (!cache.has(data)) {
+        cache.set(data, Date.now());
+    }
+
+    return cache.get(data);
+}
+
+let dataOne = { prop1: 1 }
+let dataTwo = { prop2: 2 }
+
+cacheData(dataOne);
+cacheData(dataTwo);
+
+dataOne = null;
+
+console.log(cache.has(dataOne));
+console.log(cache.has(dataTwo));
