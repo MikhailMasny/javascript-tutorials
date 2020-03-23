@@ -20,7 +20,7 @@ function* cycleGenerator(array) {
 const someArray = [1, 2, 3, 4, 5];
 const cycle = cycleGenerator(someArray);
 
-// This is simple for..*
+// This is simple for..of
 
 function* someIterator(n = 10) {
     for (let index = 0; index < n; index++) {
