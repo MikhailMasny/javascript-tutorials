@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist --presets es2015",
-    "watch": "babel src -d dist --presets es2015 -w"
+    "build": "babel src -d dist",
+    "watch": "babel src -d dist -w"
+  },
+  "babel": {
+    "presets": ["es2015"],
+    "plugins": [],
+    "minified": true,
+    "ignore": "*test.js"
   },
   "repository": {
     "type": "git",
