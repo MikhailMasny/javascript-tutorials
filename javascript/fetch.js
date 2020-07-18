@@ -29,3 +29,24 @@ const someObject = {
 sendRequest("POST", requestURL, someObject)
     .then(data => console.log(data))
     .catch(error => console.error(error))
+
+
+
+async function sendRequestAsync(model, url) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(model)
+    });
+    const data = await response.json();
+    return data;
+}
+
+async function fetchRequest() {
+    const model = {
+        prop: "value",
+    }
+    const result = await sendRequestAsync(model, url);
+}
